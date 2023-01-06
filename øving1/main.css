@@ -1,0 +1,59 @@
+body{
+    display: grid;
+    grid-template: 
+            "a a"
+            "b c" 
+            "b c"
+            "d d";
+    margin: 1em;
+    background-color: rgb(37, 75, 42);
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    grid-area: a;
+    margin-bottom: 1em;
+    border-bottom: solid 1px black;
+}
+
+.headline{
+    display: flex;
+    width: 100%;
+    align-self: center;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.meny{
+    grid-area: b;
+    background-color: rgb(199, 193, 169);
+    border: solid  2px black;
+    margin-right: 2em;
+    margin-bottom: 1em;
+    padding-right: 2em;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.contents{
+    grid-area: c;
+}
+
+.footer{
+    grid-area: d;
+    margin-top: 5em;
+    border: solid 2px black;
+}
+
+.block{
+    border: solid 2px black;
+    padding: 1em;
+    margin-bottom: 1em;
+    background-color: rgb(199, 193, 169);
+}
+
+#secondblock{
+    background-image: url("pexels-life-of-pix-7919.jpg");
+    background-size: cover;
+}
