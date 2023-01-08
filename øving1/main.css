@@ -5,8 +5,7 @@ body{
             "b c" 
             "b c"
             "d d";
-    margin: 1em;
-    background-color: rgb(37, 75, 42);
+    background-color: rgb(8, 61, 57);
 }
 
 .header{
@@ -14,7 +13,10 @@ body{
     flex-direction: row;
     grid-area: a;
     margin-bottom: 1em;
-    border-bottom: solid 1px black;
+    border: solid 1px black;
+    /*Free stockphoto from https://www.pexels.com/nb-no/bilde/take-takete-skrivebordsbakgrunn-dal-7919/ */
+    background-image: url("pexels-life-of-pix-7919.jpg"); 
+    background-size: cover;
 }
 
 .headline{
@@ -23,12 +25,20 @@ body{
     align-self: center;
     justify-content: center;
     font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    color: black;
 }
 
-.meny{
+.logo{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+.menu{
     grid-area: b;
-    background-color: rgb(199, 193, 169);
-    border: solid  2px black;
+    background-color: #8ab8b4;
+    border: solid  1px black;
     margin-right: 2em;
     margin-bottom: 1em;
     padding-right: 2em;
@@ -42,18 +52,32 @@ body{
 
 .footer{
     grid-area: d;
-    margin-top: 5em;
-    border: solid 2px black;
+    margin-top: 4em;
+    border: solid 1px black;
+    background-color: #8ab8b4;
 }
 
 .block{
-    border: solid 2px black;
+    border: solid 1px black;
     padding: 1em;
     margin-bottom: 1em;
-    background-color: rgb(199, 193, 169);
+    background-color: #8ab8b4;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    max-width: 100%;
+    height: auto;
+    resize: horizontal;
 }
 
-#secondblock{
-    background-image: url("pexels-life-of-pix-7919.jpg");
-    background-size: cover;
+@media (max-width: 481px) {
+    body{
+        grid-template: 
+            "a"
+            "b" 
+            "c"
+            "d";
+    }
+
+    .menu{
+        margin-right: 0em;
+    }
 }
