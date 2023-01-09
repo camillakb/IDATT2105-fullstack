@@ -46,6 +46,14 @@ body{
     font-weight: bold;
 }
 
+.buttons{
+    margin-left: 2em;
+}
+
+.clicks {
+    margin-left: 2em;
+}
+
 .contents{
     grid-area: c;
 }
@@ -66,6 +74,10 @@ body{
     max-width: 100%;
     height: auto;
     resize: horizontal;
+}
+
+#theSecret {
+    display: none;
 }
 
 @media (max-width: 481px) {

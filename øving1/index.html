@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
 </head>
-<body>
+<body onload="makeList()">
     <div class="header">
         <div class="logo">
             <img src="logo.png" />
@@ -15,14 +15,23 @@
         </div>
     </div>
     <div class="menu">
+        <!--List made in HTML-->
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Articles</a></li>
         </ul>
+        <!--List made in javascript-->
+        <ul id="myList"></ul>
         <!--Buttons-->
-        <button id="countbutton" class="buttons" onclick="counter()">Press me!</button>
-        <button id="colorchangingbutton" class="buttons" onclick="changeColor()">Press me!</button>
+        <button id="countbutton" class="buttons" onclick="counter()">Counter-button</button>
+        <p>Clicks: <a id="clicks">0</a></p>
+        <button id="colorchangingbutton" class="buttons" onclick="changeColor()">Change color</button>
+        <p></p>  <!--Space between the buttons-->
+        <button id="showbutton" class="buttons" onclick="showSecret()">Show secret</button>
+        <div id="theSecret">
+            <p>Hello! You've found the secret</p>
+        </div>
         <script src="func.js"></script>
     </div>
     <div class="contents">
