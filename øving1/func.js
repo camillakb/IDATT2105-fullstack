@@ -20,31 +20,23 @@ function changeColor() {
     colorbutton.innerHTML="Color changed!"
 }
 
-//A button that shows a block with text when clicked.
-let secret = document.getElementById("showbutton")
+//A button that shows additional links when clicked.
+let listbutton = document.getElementById("showbutton")
+let data = "Hello Hallo Bonjour Hola Salve".split(" ")
+let visibleList = false;
 
-function showSecret() {
-    var secret = document.getElementById("theSecret")
+function showList() {
+    if (!visibleList) {
+        let list = document.createElement("ul")
 
-    if (secret.style.display === "none") {
-        secret.style.display = "block"
-    } else {
-        secret.style.display = "none"
+        data.forEach((item) => {
+            let listElement = document.createElement("li")
+            listElement.innerHTML = item
+            list.appendChild(listElement)
+        })
+
+        listbutton.insertAdjacentElement("afterend", list)
+        visibleList = true;
     }
 }
 
-//Array of words to use as list elements in HTML.
-let list = document.getElementById("myList")
-
-function makeList() {
-    let data = ['History', 'Contact']
-
-    data.forEach((item)=>{
-        let listElement = document.createElement("listElement")
-        listElement.innerText = item
-        list.appendChild(listElement)
-    })
-}
-
-//Opprett array med tilfeldige stikkord og gjengi innholdet som en liste
-//på nettsiden (ul og li  tags) kan være knapp eller ved kjøring av nettsiden

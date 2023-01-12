@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
 </head>
-<body onload="makeList()">
+<body>
     <div class="header">
         <div class="logo">
             <img src="logo.png" />
@@ -21,24 +21,21 @@
             <li><a href="#">About</a></li>
             <li><a href="#">Articles</a></li>
         </ul>
-        <!--List made in javascript-->
-        <ul id="myList"></ul>
         <!--Buttons-->
         <button id="countbutton" class="buttons" onclick="counter()">Counter-button</button>
         <p>Clicks: <a id="clicks">0</a></p>
         <button id="colorchangingbutton" class="buttons" onclick="changeColor()">Change color</button>
         <p></p>  <!--Space between the buttons-->
-        <button id="showbutton" class="buttons" onclick="showSecret()">Show secret</button>
-        <div id="theSecret">
-            <p>Hello! You've found the secret</p>
-        </div>
+        <button id="showbutton" class="buttons" onclick="showList()">Say hello!</button>
         <script src="func.js"></script>
     </div>
     <div class="contents">
-        <div class="block" id="firstblock">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias nesciunt sunt minima accusantium omnis hic officiis voluptatibus reiciendis iste corrupti assumenda ratione nihil, saepe error dicta sint earum, dolorum vero?</p>
+        <div class="block">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias nesciunt sunt minima accusantium 
+                omnis hic officiis voluptatibus reiciendis iste corrupti assumenda ratione nihil, saepe error 
+                dicta sint earum, dolorum vero?</p>
         </div>
-        <div class="block" id="secondblock">
+        <div class="block">
             <picture>
                 <!--Uses another photo when the window size is less than 1050px-->
                 <source srcset="testphotosmall.png" media="(max-width: 1050px)">

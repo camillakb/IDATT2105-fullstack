@@ -48,6 +48,11 @@ body{
 
 .buttons{
     margin-left: 2em;
+    border-color: rgb(8, 61, 57);
+}
+
+#colorchangingbutton {
+    border-color: red;
 }
 
 .clicks {
@@ -74,10 +79,6 @@ body{
     max-width: 100%;
     height: auto;
     resize: horizontal;
-}
-
-#theSecret {
-    display: none;
 }
 
 @media (max-width: 481px) {
