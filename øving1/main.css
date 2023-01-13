@@ -49,6 +49,7 @@ body{
 .buttons{
     margin-left: 2em;
     border-color: rgb(8, 61, 57);
+    width: 80%;
 }
 
 #colorchangingbutton {
@@ -88,6 +89,10 @@ body{
             "b" 
             "c"
             "d";
+    }
+
+    .buttons {
+        width: 130px;
     }
 
     .menu{

@@ -13,8 +13,10 @@ let colorbutton = document.getElementById("colorchangingbutton")
 function changeColor() {
     if (colorbutton.style.backgroundColor === "red") {
         colorbutton.style.backgroundColor = "blue"
+        colorbutton.style.borderColor = "blue"
     } else {
         colorbutton.style.backgroundColor = "red"
+        colorbutton.style.borderColor = "red"
     }
 
     colorbutton.innerHTML="Color changed!"
