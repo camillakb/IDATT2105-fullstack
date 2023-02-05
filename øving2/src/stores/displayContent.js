@@ -37,6 +37,7 @@ export const useDisplayContentStore = defineStore("displayContent", {
                 useLogContentStore().addToLog(exp, result);
             
             } catch (error) {
+                this.displayContent = "ERROR: please press AC"
                 console.warn(error);
             }
         }
