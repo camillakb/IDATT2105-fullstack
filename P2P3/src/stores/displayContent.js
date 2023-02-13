@@ -20,10 +20,6 @@ export const useDisplayContentStore = defineStore("displayContent", {
             this.displayContent = "";
         }, 
 
-        setContent(content) {
-            this.displayContent = content;
-        },
-
         calculate() {
             try {
                 const exp = this.displayContent;

@@ -4,13 +4,13 @@
 </script>
 
 <template>
-    <div class="displaywindow">
+    <div class="display">
         <input :value="displayContent.displayContent" readonly /> <!--Read only, so that it is not possible to use keyboard to type equations-->
     </div>
 </template>
 
 <style scoped>
-    .displaywindow {
+    .display {
         border-color: black;
     }
 </style>
