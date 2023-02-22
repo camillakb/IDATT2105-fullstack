@@ -1,39 +1,48 @@
 <script setup>
-  import Calculator from './components/Calculator.vue';
-  import Log from './components/Log.vue';
-  import { RouterLink, RouterView } from 'vue-router';
+import Calculator from './components/Calculator.vue';
+import Log from './components/Log.vue';
 </script>
 
 <template>
   <h1 class="title">
     Calculator
   </h1>
-  <p class="home">
-    <RouterLink to="/">Home </RouterLink>
-  </p>
-  <p class="feedback">
-    <RouterLink to="/feedback">Give feedback</RouterLink>
-  </p>
-  <RouterView />
+
+  <main>
+    <div class="appcontent">
+      <div class="calc">
+        <Calculator />
+      </div>
+
+      <div class="log">
+        <Log />
+      </div>
+    </div>
+  </main>
 </template>
 
 <style scoped>
-  .title{
-    display: flex;
-    justify-content: center;
-  }
+.title {
+  display: flex;
+  justify-content: center;
+}
 
-  .home{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: darkblue;
-  }
+.appcontent {
+  grid-template:
+    "calc log";
+  display: grid;
+  max-width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: flex-start
+}
 
-  .feedback{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: blueviolet;
+@media (max-width: 481px) {
+  body {
+    display: grid;
+    grid-template:
+      "calc"
+      "log";
   }
+}
 </style>
