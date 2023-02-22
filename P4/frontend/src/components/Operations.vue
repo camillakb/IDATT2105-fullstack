@@ -3,6 +3,10 @@
     import {useDisplayContentStore} from "../stores/displayContent";
 
     const displayContent = useDisplayContentStore();
+
+    function sendToBackend() {
+        //https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses - bruk HTTP respons??
+    }
 </script>
 
 <template>
@@ -13,7 +17,7 @@
         <Button buttontext="-" @click="displayContent.insert('-')" />
         <Button buttontext="DEL" @click="displayContent.remove()" />
         <Button buttontext="AC" @click="displayContent.clear()" />
-        <Button buttontext="=" @click="displayContent.calculate()" />
+        <Button buttontext="=" @click="displayContent.sendToBackend()" />
     </div>
     
 </template>
