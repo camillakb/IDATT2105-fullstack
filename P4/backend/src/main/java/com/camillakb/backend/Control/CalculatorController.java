@@ -13,7 +13,7 @@ public class CalculatorController {
     @Autowired
     private CalculatorService calculatorService;
 
-    @PostMapping("/calculation")
+    @PostMapping("/")
     public CalculatorDTO postCalculation(@RequestBody CalculatorDTO calculation){
         return calculatorService.calculate(calculation);
     }
