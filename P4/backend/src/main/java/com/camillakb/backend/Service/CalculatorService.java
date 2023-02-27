@@ -6,12 +6,12 @@ import javax.script.ScriptException;
 
 import org.springframework.stereotype.Service;
 
-import com.camillakb.backend.Model.CalculatorDTO;
+import com.camillakb.backend.Model.CalculatorModel;
 
 @Service
 public class CalculatorService {
     
-    public CalculatorDTO calculate(CalculatorDTO calc) {
+    public CalculatorModel calculate(CalculatorModel calc) {
         ScriptEngineManager manager = new ScriptEngineManager();
         ScriptEngine engine = manager.getEngineByName("js");
         
@@ -24,5 +24,9 @@ public class CalculatorService {
             calc.setErrorString("ERROR: Please press AC.");
             return calc;
         }
+    }
+
+    public String calculatorMessage() {
+        return "hei"; //Fiks dette!
     }
 }

@@ -1,11 +1,11 @@
 package com.camillakb.backend.Model;
 
-public class CalculatorDTO {
+public class CalculatorModel {
     private String calcString;
     private Object answer;
     private String errorString;
     
-    public CalculatorDTO(){}
+    public CalculatorModel(){}
 
     public String getCalculatorString() {
         return calcString;
