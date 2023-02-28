@@ -1,13 +1,14 @@
 package com.camillakb.backend.Repo;
+import com.camillakb.backend.Model.CalculatorModel;
 
 import org.springframework.stereotype.Repository;
 
-@Repository
-public class CalculatorRepo {
+//Skal få tak i data/objekter
 
-    //???
-    public String aMethod() {
-        return "hei";
-    }
-    
+@Repository
+public interface CalculatorRepo {
+    CalculatorModel get(String calcString);
+    public void addCalcToRepo();
+    public void updateCalcInRepo();
+    public void removeFromRepo();
 }

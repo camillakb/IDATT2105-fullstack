@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.camillakb.backend.Model.CalculatorModel;
 
+//mellomlaget til kontrolleren og "resten"
+
 @Service
 public class CalculatorService {
     

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+//Ta i mot svar fra klientene, kalle service for å utføre kalkulasjon/få tak i nødvendig data
+
 @RestController
 public class CalculatorController {
 
@@ -23,7 +25,7 @@ public class CalculatorController {
     }
 
     @RequestMapping("/")
-    // ha med alt? er det p åriktig plass?
+    // ha med alt? er det på riktig plass?
     public String somethingMessage() {
         logger.trace("Sett inn noe fornuftig");
         logger.debug("Sett inn noe fornuftig");
