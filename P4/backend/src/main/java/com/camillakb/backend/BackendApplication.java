@@ -21,7 +21,7 @@ public class BackendApplication {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/")
 				.allowedMethods("GET", "POST")
-				.allowedOrigins("http://localhost:3333"); //kanskje denne skal være 3000, ikke helt sikker...
+				.allowedOrigins("http://localhost:3333"); 
 			}
 		};
 	}
