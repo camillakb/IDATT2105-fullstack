@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { useLogContentStore } from "./logContent";
+import axios from "axios";
 
 export const useDisplayContentStore = defineStore("displayContent", {
     state: () => {
@@ -22,19 +23,23 @@ export const useDisplayContentStore = defineStore("displayContent", {
 
         calculate() {
             try {
-                const exp = this.displayContent;
-                const result = Number(Number(eval(this.displayContent)).toPrecision(3));
+                axios.post("http://localhost:3333/", {
+                    calcRequest: this.displayContent
+                })
+                .then((response) => {
+                    console.log(response);
 
-                if ([undefined, null, NaN, Infinity].includes(result)) {
-                    throw new Error(result);
-                }
+                    if(response.data.status != "") {
+                        this.displayContent = "Invalid expression. Press AC.";
+                    
+                    } else {
+                        useLogContentStore().addToLog(this.displayContent, response.data.calcResponse);
+                        this.displayContent = response.data.calcResponse;
+                    }
+                })
 
-                this.displayContent = result;
-                useLogContentStore().addToLog(exp, result);
-            
-            } catch (error) {
-                this.displayContent = "ERROR: please press AC"
-                console.warn(error);
+            } catch(error) {
+                console.error(error);
             }
         }
     }
