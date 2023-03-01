@@ -19,7 +19,7 @@ public class CalculatorController {
 
     @PostMapping("/")
     public CalculatorResponse postCalculation(@RequestBody CalculatorRequest calculation){
-        logger.info("Received request ");
+        logger.info("Received request" + calculation);
         return calculatorService.calculate(calculation);
     }
 }
