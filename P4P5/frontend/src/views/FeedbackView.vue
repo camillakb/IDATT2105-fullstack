@@ -11,6 +11,7 @@
         },
         computed: {
             ...mapWritableState(useFeedbackFormStore, ['name', 'email', 'feedback']),
+            //enable button when all fields are filled
             enableButton() {
                 if (this.name != '' && this.email != '' && this.feedback != '') {
                     return true;
@@ -22,11 +23,13 @@
         methods: {
             submit(event) {
                 event.preventDefault();
+                //sends feedback to ../data/api.json
                 axios.post("http://localhost:3000/feedback", {
                     name: this.name,
                     email: this.email,
                     feedback: this.feedback
                 }).then(response => {
+                    //clear fields when feedback is submitted
                     if (response.status >= 200 && response.status < 300) {
                         this.statusInfo = "Feedback submitted!";
                         this.name = '';

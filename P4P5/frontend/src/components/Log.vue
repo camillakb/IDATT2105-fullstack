@@ -1,6 +1,5 @@
 <script setup>
     import { useLogContentStore } from '../stores/logContent';
-
     const log = useLogContentStore();
 </script>
 

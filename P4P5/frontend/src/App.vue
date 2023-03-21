@@ -1,6 +1,4 @@
 <script setup>
-  import Calculator from './components/Calculator.vue';
-  import Log from './components/Log.vue';
   import { RouterLink, RouterView } from 'vue-router';
 </script>
 
@@ -13,6 +11,9 @@
   </p>
   <p class="feedback">
     <RouterLink to="/feedback">Give feedback</RouterLink>
+  </p>
+  <p class="login">
+    <RouterLink to="/login">Account</RouterLink>
   </p>
   <RouterView />
 </template>
@@ -27,13 +28,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: darkblue;
   }
 
   .feedback{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: blueviolet;
+  }
+
+  .login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>

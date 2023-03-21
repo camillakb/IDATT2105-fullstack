@@ -21,7 +21,7 @@ export const useDisplayContentStore = defineStore("displayContent", {
             this.displayContent = "";
         }, 
 
-        calculate() {
+        calculate() { //calculations is executed in backend
             try {
                 axios.post("http://localhost:3333/", {
                     calcRequest: this.displayContent
@@ -33,6 +33,7 @@ export const useDisplayContentStore = defineStore("displayContent", {
                         this.displayContent = "Invalid expression. Press AC.";
                     
                     } else {
+                        //add the equation and result to the log next to the calculator
                         useLogContentStore().addToLog(this.displayContent, response.data.calcResponse);
                         this.displayContent = response.data.calcResponse;
                     }
