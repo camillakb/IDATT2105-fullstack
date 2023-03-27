@@ -1,34 +1,34 @@
 <script>
-//TO-DO: create userlogout-method to send user back to loginview
 </script>
 
 <template>
     <p class="title">Your latest calulations:</p>
+
     <div class="calchistory">
         <div>
             <!--make log of latest calculations for the user-->
         </div>
-        <button id="logoutbutton" type="button" @click="userlogout">
-            Log out
-        </button>
     </div>
-    
-    
+
+    <button class="logout">
+        <RouterLink to="/">Log out</RouterLink>
+    </button>
 </template>
 
 <style scoped>
-.title{
+.title {
     display: grid;
     justify-content: center;
     font-size: 25px;
     font-weight: bold;
 }
-.calchistory{
+
+.calchistory {
     display: grid;
     justify-content: center;
 }
 
-#logoutbutton{
+#logoutbutton {
     border-radius: 5px;
     border-color: black;
 }

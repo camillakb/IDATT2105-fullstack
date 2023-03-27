@@ -9,8 +9,8 @@ const router = createRouter({
     routes: [
         {
             path: "/",
-            name: "calculator",
-            component: CalculatorView,
+            name: "login",
+            component: LoginView,
         },
         {
             path: "/feedback",
@@ -18,9 +18,9 @@ const router = createRouter({
             component: FeedbackView,
         },
         {
-            path: "/login",
-            name: "login",
-            component: LoginView,
+            path: "/calculator",
+            name: "calculator",
+            component: CalculatorView,
         },
         {
             path: "/user",
