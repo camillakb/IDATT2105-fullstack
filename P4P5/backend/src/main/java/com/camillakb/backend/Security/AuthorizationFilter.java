@@ -6,12 +6,12 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.camillakb.backend.Control.TokenController;
 
+import ch.qos.logback.classic.Logger;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -25,7 +25,7 @@ import java.util.Collections;
 
 public class AuthorizationFilter extends OncePerRequestFilter {
 
-    private static final Logger LOGGER = LogManager.getLogger(AuthorizationFilter.class);
+    Logger logger = (Logger) LoggerFactory.getLogger(this.getClass());
 
     public static final String USER = "USER";
     public static final String ROLE_USER = "ROLE_" + USER;
@@ -36,9 +36,11 @@ public class AuthorizationFilter extends OncePerRequestFilter {
             HttpServletResponse response,
             FilterChain filterChain) throws ServletException, IOException {
 
+                logger.info("Received a request.");
         // check Bearer auth header
         final String header = request.getHeader(HttpHeaders.AUTHORIZATION);
         if (header == null || !header.startsWith("Bearer ")) {
+            logger.info("Header does not exist.");
             filterChain.doFilter(request, response);
             return;
         }
@@ -48,9 +50,11 @@ public class AuthorizationFilter extends OncePerRequestFilter {
         // Note also that the token comes in this format 'Bearer token'
         String token = header.substring(7);
         final String username = validateTokenAndGetUserId(token);
+        
         if (username == null) {
             // validation failed or token expired
             filterChain.doFilter(request, response);
+            logger.info("Validation failed.");
             return;
         }
 
@@ -72,10 +76,10 @@ public class AuthorizationFilter extends OncePerRequestFilter {
             final Algorithm hmac512 = Algorithm.HMAC512(TokenController.keyStr);;
             final JWTVerifier verifier = JWT.require(hmac512).build();
             return verifier.verify(token).getSubject();
+
         } catch (final JWTVerificationException verificationEx) {
-            LOGGER.warn("token is invalid: {}", verificationEx.getMessage());
+            logger.info("Invalid token.");
             return null;
         }
     }
-
 }

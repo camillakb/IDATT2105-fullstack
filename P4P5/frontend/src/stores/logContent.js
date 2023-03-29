@@ -6,9 +6,12 @@ export const useLogContentStore = defineStore("logContent", {
             logContent: []
         }
     }, 
+    persist: {
+        storage: sessionStorage
+    },
     actions: {
-        addToLog(exp, result) {
-            this.logContent.push({exp: exp, result: result});
+        addToLog(exp) {
+            this.logContent.push({exp: exp});
         }
     }
 })

@@ -1,17 +1,34 @@
 <script>
+import { mapStores } from 'pinia';
+import router from '../router';
+import { useTokenStore } from '../stores/token';
+import { useLogContentStore } from '../stores/logContent';
+
+export default {
+    methods: {
+        logout() {
+            this.tokenStore.token = "";
+            router.push("/")
+        }
+    },
+
+    computed: {
+        ...mapStores(useTokenStore, useLogContentStore)
+    }
+}
 </script>
 
 <template>
     <p class="title">Your latest calulations:</p>
 
     <div class="calchistory">
-        <div>
-            <!--make log of latest calculations for the user-->
+        <div v-for="entry in this.logContentStore.logContent.reverse()">
+            {{ entry.exp }}
         </div>
     </div>
 
-    <button class="logout">
-        <RouterLink to="/">Log out</RouterLink>
+    <button class="logout" type="submit" @click="logout">
+        Log out
     </button>
 </template>
 

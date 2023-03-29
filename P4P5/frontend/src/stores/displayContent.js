@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { useLogContentStore } from "./logContent";
+import { useTokenStore } from "./token";
 import axios from "axios";
 
 export const useDisplayContentStore = defineStore("displayContent", {
@@ -21,10 +22,15 @@ export const useDisplayContentStore = defineStore("displayContent", {
             this.displayContent = "";
         }, 
 
-        calculate() { //calculations is executed in backend
+        calculate() { //calculations is executed and added to user history in backend
             try {
-                axios.post("http://localhost:3333/", {
+                axios.post("http://localhost:3333/calculator", {
                     calcRequest: this.displayContent
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${useTokenStore().token}`
+                    }
                 })
                 .then((response) => {
                     console.log(response);
@@ -34,8 +40,9 @@ export const useDisplayContentStore = defineStore("displayContent", {
                     
                     } else {
                         //add the equation and result to the log next to the calculator
-                        useLogContentStore().addToLog(this.displayContent, response.data.calcResponse);
-                        this.displayContent = response.data.calcResponse;
+                        useLogContentStore().addToLog(response.data.calcResponse);
+
+                        this.displayContent = response.data.calcResponse.split("=")[1].trim();
                     }
                 })
 

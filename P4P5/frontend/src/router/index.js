@@ -3,6 +3,7 @@ import FeedbackView from "../views/FeedbackView.vue";
 import CalculatorView from "../views/CalculatorView.vue";
 import LoginView from "../views/LoginView.vue";
 import UserView from "../views/UserView.vue";
+import CreateUserView from "../views/CreateUserView.vue"
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
             path: "/user",
             name: "user",
             component: UserView,
+        },
+        {
+            path: "/createuser",
+            name: "createuser",
+            component: CreateUserView,
         }
     ]
 });

@@ -1,7 +1,13 @@
-<script setup>
-  import { RouterLink, RouterView } from 'vue-router';
+<script>
+  import { mapStores } from 'pinia';
+import { RouterLink, RouterView } from 'vue-router';
+  import { useTokenStore } from './stores/token';
 
-  //only show calculator, feedback and user-link when logged in
+  export default {
+    computed: {
+      ...mapStores(useTokenStore)
+    }
+  }
 
 </script>
 
@@ -9,15 +15,18 @@
   <h1 class="title">
     Calculator
   </h1>
-  <p class="calculator">
-    <RouterLink to="/calculator">Calculator </RouterLink>
-  </p>
-  <p class="feedback">
-    <RouterLink to="/feedback">Give feedback</RouterLink>
-  </p>
-  <p class="user">
-    <RouterLink to="/user">Account</RouterLink>
-  </p>
+  <div v-if="this.tokenStore.isLoggedIn()">
+    <p class="calculator">
+      <RouterLink to="/calculator">Calculator </RouterLink>
+    </p>
+    <p class="feedback">
+      <RouterLink to="/feedback">Give feedback</RouterLink>
+    </p>
+    <p class="user">
+      <RouterLink to="/user">Account</RouterLink>
+    </p>
+    
+  </div>
   <RouterView />
 </template>
 

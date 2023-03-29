@@ -1,31 +1,12 @@
 <script>
-import axios from 'axios';
-import { toHandlers } from 'vue';
-import router from '../router';
-import { isLoginSuccessful } from '../utils/loginutils';
+import { login } from '../utils/loginutils';
 
 export default {
     name: "LoginView",
 
     methods: {
-        async userlogin(event) {
-            try {
-                axios.post("http://localhost:3333/", {
-                    //loginReq: brukernavn + passord???
-                })
-                .then((response) => {
-                    if (isLoginSuccessful(response)) {
-                        router.push("/calculator");
-                        //Skal være .../brukernavn/calculator/ - hvordan fikser jeg det??
-                    
-                    } else {
-                        this.loginStatus = "Your password or username is invalid."
-                    }
-                })
-            
-            } catch(error) {
-                console.log(error);
-            }
+        userlogin() {
+            login(this.username, this.password);
         },
     },
 
@@ -53,8 +34,11 @@ export default {
         </label>
         <input type="password" id="pass" aria-required="true" data-ok="false" placeholder="Enter password here..." v-model="password">
         <p></p>
-        <button id="loginbutton" type="submit" @click="userlogin">
+        <button id="loginbutton" @click="userlogin">
             Log in
+        </button>
+        <button id="createuserbutton">
+            <RouterLink to="/createuser">Create user</RouterLink>
         </button>
         <label id="loginstatusLabel">{{ loginStatus }}</label>
     </main>
@@ -74,6 +58,11 @@ export default {
 }
 
 #loginbutton {
+    border-color: black;
+    border-radius: 5px;
+}
+
+#createuserbutton {
     border-color: black;
     border-radius: 5px;
 }

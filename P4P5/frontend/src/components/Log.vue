@@ -6,7 +6,7 @@
 <template>
     <div class="calculatorLog">
         <div v-for="entry in log.logContent.reverse()">
-            {{ entry.exp }} = {{ entry.result }}
+            {{ entry.exp }}
         </div>
     </div>
 </template>
