@@ -23,7 +23,7 @@ import com.camillakb.backend.Security.PasswordUtils;
 @CrossOrigin
 @RequestMapping(path = "/token")
 public class TokenController {
-    public static final String keyStr = "oooooverysecret";
+    public static final String keyStr = "verysecret";
     private static final Duration JWT_TOKEN_VALIDITY = Duration.ofMinutes(5);
     private static final String issuer_id = "Calculator";
 

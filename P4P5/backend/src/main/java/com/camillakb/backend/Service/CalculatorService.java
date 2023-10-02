@@ -1,8 +1,6 @@
 package com.camillakb.backend.Service;
 import com.camillakb.backend.DAO.CalcRepo;
-import com.camillakb.backend.DAO.UserRepo;
 import com.camillakb.backend.Entity.Calculation;
-import com.camillakb.backend.Entity.User;
 import com.camillakb.backend.Model.CalculatorRequest;
 import com.camillakb.backend.Model.CalculatorResponse;
 
@@ -23,7 +21,6 @@ public class CalculatorService {
     @Autowired
     private CalcRepo calcRepo;
     @Autowired
-    private UserRepo userRepo;
 
     Logger logger = (Logger) LoggerFactory.getLogger(this.getClass()); 
 

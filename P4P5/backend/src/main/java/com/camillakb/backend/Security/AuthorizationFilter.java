@@ -46,8 +46,6 @@ public class AuthorizationFilter extends OncePerRequestFilter {
         }
 
         // if Bearer auth header exists, validate token, and extract userId from token.
-        // Note that we have added userId as subject to the token when it is generated
-        // Note also that the token comes in this format 'Bearer token'
         String token = header.substring(7);
         final String username = validateTokenAndGetUserId(token);
         
@@ -59,15 +57,13 @@ public class AuthorizationFilter extends OncePerRequestFilter {
         }
 
         // if token is valid, add user details to the authentication context
-        // Note that user details should be fetched from the database in real scenarios
-        // this is case we will retrieve use details from mock
         UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
                 username,
                 null,
                 Collections.singletonList(new SimpleGrantedAuthority(ROLE_USER)));
         SecurityContextHolder.getContext().setAuthentication(auth);
 
-        // then, continue with authenticated user context
+        // continue with authenticated user context
         filterChain.doFilter(request, response);
     }
 

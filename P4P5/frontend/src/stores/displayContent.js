@@ -22,7 +22,7 @@ export const useDisplayContentStore = defineStore("displayContent", {
             this.displayContent = "";
         }, 
 
-        calculate() { //calculations is executed and added to user history in backend
+        calculate() { //calculations is executed and added to user history 
             try {
                 axios.post("http://localhost:3333/calculator", {
                     calcRequest: this.displayContent
